@@ -61,4 +61,4 @@ typings/
 certificates/*.pem
 
 # idea
-.idea
+.idea/*
