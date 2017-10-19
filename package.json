@@ -1,0 +1,27 @@
+{
+  "name": "jwt-generator",
+  "version": "0.1.0",
+  "description": "JWT Generating API on Hapi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ckundra/jwt-generator.git"
+  },
+  "author": "Chris Kundra",
+  "license": "MIT",
+  "dependencies": {
+    "boom": "^6.0.0",
+    "good": "^7.3.0",
+    "good-console": "^6.4.0",
+    "hapi": "^16.6.2",
+    "joi": "^13.0.1",
+    "jsonwebtoken": "^8.1.0"
+  },
+  "bugs": {
+    "url": "https://github.com/ckundra/jwt-generator/issues"
+  },
+  "homepage": "https://github.com/ckundra/jwt-generator#readme"
+}
