@@ -58,7 +58,7 @@ typings/
 .env
 
 # Omit Certificates
-certificates/*
+certificates/*.pem
 
 # idea
 .idea
