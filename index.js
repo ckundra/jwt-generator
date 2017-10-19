@@ -3,10 +3,15 @@
 
 const fs = require('fs');
 
+const Pack = require('./package');
+
 const Hapi = require('hapi');
 const Good = require('good');
 const Boom = require('boom');
 const Joi = require('joi');
+const Inert = require('inert');
+const Vision = require('vision');
+const HapiSwagger = require('hapi-swagger');
 
 const jwt = require('jsonwebtoken');
 
@@ -17,6 +22,7 @@ server.route({
     method: 'POST',
     path: '/v1/jwt-generator',
     config: {
+        tags: ['api'],
         validate: {
             payload: {
                 attributes: Joi.object().required(),
@@ -58,7 +64,19 @@ server.route({
     }
 });
 
-server.register({
+server.register([
+    Inert,
+    Vision,
+    {
+        register: HapiSwagger,
+        options: {
+            info: {
+                'title': 'Test API Documentation',
+                'version': Pack.version,
+            }
+        }
+    },
+    {
     register: Good,
     options: {
         reporters: {
@@ -67,7 +85,7 @@ server.register({
             }, 'stdout']
         }
     }
-}, (err) => {
+}], (err) => {
 
     if (err) {
         throw err; // something bad happened loading the plugin
